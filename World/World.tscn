@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Rock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Grass-2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Demon.tscn" type="PackedScene" id=5]
 
 [node name="world" type="Node2D"]
 
@@ -15,19 +17,28 @@ region_rect = Rect2( 0, 0, 320, 180 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 96, 48 )
+position = Vector2( 83.5329, 128.614 )
 
-[node name="Rock YSort" type="YSort" parent="YSort"]
+[node name="Demon" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 160.459, 99.1068 )
 
-[node name="Rock" parent="YSort/Rock YSort" instance=ExtResource( 2 )]
+[node name="objects YSort" type="YSort" parent="YSort"]
+
+[node name="Rock" parent="YSort/objects YSort" instance=ExtResource( 2 )]
 position = Vector2( 130, 85 )
 rotation = -0.591667
 
-[node name="Rock2" parent="YSort/Rock YSort" instance=ExtResource( 2 )]
+[node name="Rock2" parent="YSort/objects YSort" instance=ExtResource( 2 )]
 position = Vector2( 111, 89 )
 
-[node name="Rock3" parent="YSort/Rock YSort" instance=ExtResource( 2 )]
+[node name="Rock3" parent="YSort/objects YSort" instance=ExtResource( 2 )]
 position = Vector2( 87, 89 )
 
-[node name="Rock4" parent="YSort/Rock YSort" instance=ExtResource( 2 )]
+[node name="Rock4" parent="YSort/objects YSort" instance=ExtResource( 2 )]
 position = Vector2( 136, 48 )
+
+[node name="Tree" parent="YSort/objects YSort" instance=ExtResource( 4 )]
+position = Vector2( 36.2882, 88.6198 )
+
+[node name="Tree2" parent="YSort/objects YSort" instance=ExtResource( 4 )]
+position = Vector2( 200.522, 122.127 )
