@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-const MAX_SPEED = 50
+const MAX_SPEED = 30
 
 func _process(_delta):
 	var input_velocity = Vector2.ZERO

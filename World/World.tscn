@@ -20,22 +20,22 @@ region_rect = Rect2( 0, 0, 320, 180 )
 position = Vector2( 56, 144 )
 
 [node name="Demon" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 160.459, 99.1068 )
+position = Vector2( 253, 67 )
 
 [node name="objects YSort" type="YSort" parent="YSort"]
 
 [node name="Rock" parent="YSort/objects YSort" instance=ExtResource( 2 )]
-position = Vector2( 264, 146 )
-rotation = -0.591667
+position = Vector2( 257, 153 )
+rotation = -0.16057
 
 [node name="Rock2" parent="YSort/objects YSort" instance=ExtResource( 2 )]
-position = Vector2( 102, 90 )
+position = Vector2( 101, 62 )
 
 [node name="Rock3" parent="YSort/objects YSort" instance=ExtResource( 2 )]
-position = Vector2( 87, 89 )
+position = Vector2( 36, 101 )
 
 [node name="Rock4" parent="YSort/objects YSort" instance=ExtResource( 2 )]
-position = Vector2( 235, 152 )
+position = Vector2( 239, 153 )
 
 [node name="Tree" parent="YSort/objects YSort" instance=ExtResource( 4 )]
 position = Vector2( 18, 93 )
