@@ -17,7 +17,7 @@ region_rect = Rect2( 0, 0, 320, 180 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 83.5329, 128.614 )
+position = Vector2( 56, 144 )
 
 [node name="Demon" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 160.459, 99.1068 )
@@ -25,20 +25,20 @@ position = Vector2( 160.459, 99.1068 )
 [node name="objects YSort" type="YSort" parent="YSort"]
 
 [node name="Rock" parent="YSort/objects YSort" instance=ExtResource( 2 )]
-position = Vector2( 130, 85 )
+position = Vector2( 264, 146 )
 rotation = -0.591667
 
 [node name="Rock2" parent="YSort/objects YSort" instance=ExtResource( 2 )]
-position = Vector2( 111, 89 )
+position = Vector2( 102, 90 )
 
 [node name="Rock3" parent="YSort/objects YSort" instance=ExtResource( 2 )]
 position = Vector2( 87, 89 )
 
 [node name="Rock4" parent="YSort/objects YSort" instance=ExtResource( 2 )]
-position = Vector2( 136, 48 )
+position = Vector2( 235, 152 )
 
 [node name="Tree" parent="YSort/objects YSort" instance=ExtResource( 4 )]
-position = Vector2( 36.2882, 88.6198 )
+position = Vector2( 18, 93 )
 
 [node name="Tree2" parent="YSort/objects YSort" instance=ExtResource( 4 )]
-position = Vector2( 200.522, 122.127 )
+position = Vector2( 248, 145 )
