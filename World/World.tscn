@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Rock.tscn" type="PackedScene" id=2]
-[ext_resource path="res://World/Grass-2.png" type="Texture" id=3]
+[ext_resource path="res://World/Good_Grass-1.png" type="Texture" id=3]
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemies/Demon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Spirit.tscn" type="PackedScene" id=6]
 
 [node name="world" type="Node2D"]
 
-[node name="background" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
 texture = ExtResource( 3 )
 region_enabled = true
