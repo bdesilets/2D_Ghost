@@ -5,3 +5,4 @@
 [node name="GUI" type="CanvasLayer"]
 
 [node name="Pause menu" parent="." instance=ExtResource( 1 )]
+visible = false

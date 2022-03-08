@@ -2,13 +2,13 @@ extends Control
 
 var is_paused = false setget set_is_paused
 
-func unhandled_imput(event):
+func unhandled_input(event):
 	if event.if_action_pressed("pause"):
 		self.is_paused = !is_paused
 
 func set_is_paused(value):
 	is_paused = value
-	get.tree().paused = is_paused
+	get_tree().paused = is_paused
 	visible = is_paused
 
 
