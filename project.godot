@@ -14,6 +14,10 @@ config/name="2D_Ghost"
 run/main_scene="res://UI/Start_menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalSettings="*res://UI/global_settings.gd"
+
 [display]
 
 window/size/width=320

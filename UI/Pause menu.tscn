@@ -3,9 +3,9 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
-func _ready():
+#func _ready():
 	#trying to be able to use keyboard or mouse, currently not working
-	$background/CenterContainer/VBoxContainer/Resume_button.set_focus()
+	#$background/CenterContainer/VBoxContainer/Resume_button.set_focus()
 
 var is_paused = false setget set_is_paused
 
