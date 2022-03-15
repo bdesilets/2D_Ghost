@@ -11,6 +11,8 @@
 [node name="world" type="Node2D"]
 position = Vector2( -2, 0 )
 
+[node name="GUI" parent="." instance=ExtResource( 7 )]
+
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
 texture = ExtResource( 3 )
@@ -69,4 +71,5 @@ z_index = -100
 [node name="Spirit3" parent="YSort/objects YSort" instance=ExtResource( 6 )]
 position = Vector2( 118, 120 )
 
-[node name="GUI" parent="." instance=ExtResource( 7 )]
+[editable path="GUI"]
+[editable path="GUI/Spirit_counter"]

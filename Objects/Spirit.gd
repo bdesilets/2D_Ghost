@@ -2,15 +2,17 @@ extends StaticBody2D
 
 onready var animation_player = $AnimationPlayer
 onready var animated_sprite =$AnimatedSprite
+onready var UI_label = get_node("../../../GUI/Spirit_counter/Spirit_counter_label")
+#figure out how to get counter label corrently!
 
 func _on_playerDetecor_body_entered(_body):
-	spirit_counter()
+	update_counter()
 	play_animation()
 
-func spirit_counter():
-	Global.spirit_collected = true
+func update_counter():
+	print("in update_counter")
 	Global.spirits += 1
-	#update counter label UI
+	UI_label.text = "Spirits: " + str(Global.spirits)
 	
 func play_animation():
 	animated_sprite.visible = true
