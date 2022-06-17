@@ -43,21 +43,27 @@ columns = 2
 
 [node name="DisplayMode_Label" type="Label" parent="TabContainer/Sound/MarginContainer/GridContainer"]
 margin_top = 3.0
-margin_right = 88.0
+margin_right = 91.0
 margin_bottom = 17.0
 text = "Display mode"
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Sound/MarginContainer/GridContainer"]
-margin_left = 92.0
-margin_right = 191.0
+margin_left = 95.0
+margin_right = 194.0
 margin_bottom = 20.0
 text = "Full screen"
 
 [node name="DisplayMode_Label2" type="Label" parent="TabContainer/Sound/MarginContainer/GridContainer"]
+margin_top = 25.0
+margin_right = 91.0
+margin_bottom = 39.0
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/GridContainer"]
+margin_left = 95.0
 margin_top = 24.0
-margin_right = 88.0
-margin_bottom = 38.0
-text = "Brightness"
+margin_right = 194.0
+margin_bottom = 40.0
 
 [node name="Controls" type="Tabs" parent="TabContainer"]
 visible = false
@@ -68,3 +74,5 @@ margin_bottom = 24.0
 visible = false
 margin_right = 40.0
 margin_bottom = 24.0
+
+[connection signal="changed" from="TabContainer/Sound/MarginContainer/GridContainer/HSlider" to="." method="_on_HSlider_changed"]
