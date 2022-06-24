@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const MAX_SPEED = 30
+const MAX_SPEED = 40
 
 var velocity = Vector2.ZERO
 var state = MOVE
@@ -50,8 +50,7 @@ func dash_state():
 func attack_animation_finished():
 	state = MOVE
 
-
-#func _on_Hurtbox_area_entered(area):
-	#pass # Replace with function body.
+func _on_Hurtbox_area_entered(area):
+	pass # Replace with function body.
 	#play death animtion
 	#queue_free()

@@ -165,6 +165,7 @@ visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="playerDetecor" index="0"]
+visible = false
 shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

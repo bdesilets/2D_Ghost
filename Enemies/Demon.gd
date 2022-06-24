@@ -34,15 +34,16 @@ func move_state():
 func attack_state():
 	pass
 
+func _on_Player_detector_body_entered(body):
+	MAX_SPEED = 20
+	player = body
+	pass
 
-#func _on_Player_detector_body_entered(body):
-#	MAX_SPEED = 20
-#	player = body
-#
-#func _on_Player_detector_body_exited(_body):
-#	MAX_SPEED = 10
-#	velocity = Vector2.ZERO
+func _on_Player_detector_body_exited(_body):
+	MAX_SPEED = 10
+	velocity = Vector2.ZERO
+	pass
 
-func _on_Hurtbox_body_entered(body):
-	# play death animation
+func _on_Hurtbox_area_entered(area):
+	print(area)
 	queue_free()
