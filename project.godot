@@ -138,7 +138,8 @@ Attack={
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="objects"
 2d_physics/layer_4="collectables"
-2d_physics/layer_5="detectors"
+2d_physics/layer_5="player inflict dammage"
+2d_physics/layer_6="enemies inflict dammage"
 
 [physics]
 
