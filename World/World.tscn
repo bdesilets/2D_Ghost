@@ -27,13 +27,13 @@ region_rect = Rect2( 0, 0, 320, 180 )
 position = Vector2( 56, 144 )
 
 [node name="Demon" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 195, 42 )
+position = Vector2( 172, 92 )
 
 [node name="Demon2" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 160, 102 )
+position = Vector2( 286, 49 )
 
 [node name="Demon3" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 176, 110 )
+position = Vector2( 291, 42 )
 
 [node name="objects YSort" type="YSort" parent="YSort"]
 
