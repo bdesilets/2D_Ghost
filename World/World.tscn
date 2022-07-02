@@ -42,7 +42,7 @@ position = Vector2( 172, 92 )
 position = Vector2( 286, 49 )
 
 [node name="Demon3" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 291, 42 )
+position = Vector2( 64, 77 )
 
 [node name="objects YSort" type="YSort" parent="YSort"]
 

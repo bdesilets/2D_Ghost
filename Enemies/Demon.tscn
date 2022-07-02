@@ -185,6 +185,7 @@ position = Vector2( 3, -11 )
 shape = SubResource( 15 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 4 )]
+visible = false
 collision_mask = 32
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]

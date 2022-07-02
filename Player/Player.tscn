@@ -1048,6 +1048,7 @@ vframes = 3
 frame = 3
 
 [node name="world collider_CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.25 )
 shape = SubResource( 1 )
