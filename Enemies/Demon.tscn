@@ -132,6 +132,7 @@ radius = 13.0
 
 [sub_resource type="CapsuleShape2D" id=16]
 radius = 7.0
+height = 14.0
 
 [node name="Demon" type="KinematicBody2D"]
 collision_layer = 2
@@ -184,7 +185,6 @@ position = Vector2( 3, -11 )
 shape = SubResource( 15 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 4 )]
-visible = false
 collision_mask = 32
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]

@@ -13,6 +13,11 @@ func update_scene():
 	_sceneTree = get_tree()
 	_UI_label = _sceneTree.root.get_node("/root/World/GUI/Spirit_counter/Spirit_counter_label")
 	
+func start_death_menu():
+	_spirits = 0
+	_UI_label.text = "Spirits: " + str(_spirits)
+	get_tree().change_scene("res://UI/Death_menu.tscn")
+	
 func increase_spirits_by (increment):
 	_spirits += increment
 	_UI_label.text = "Spirits: " + str(_spirits)

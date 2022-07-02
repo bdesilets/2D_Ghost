@@ -45,5 +45,5 @@ func _on_Player_detector_body_exited(_body):
 	pass
 
 func _on_Hurtbox_area_entered(area):
-	print(area)
+	#death animation
 	queue_free()

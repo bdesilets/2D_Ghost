@@ -69,4 +69,4 @@ func dash_animation_finished():
 
 func _on_Hurtbox_area_entered(area):
 	#play death animation
-	queue_free()
+	game_settings.start_death_menu()
