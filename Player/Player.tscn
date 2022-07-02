@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Player/Player_set.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -693,12 +693,15 @@ radius = 8.0
 height = 5.0
 
 [sub_resource type="CapsuleShape2D" id=38]
-radius = 11.0
-height = 0.0
+radius = 9.0
+height = 4.0
+
+[sub_resource type="CapsuleShape2D" id=39]
+height = 4.0
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -4 )
-collision_mask = 4
+collision_mask = 12
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -709,7 +712,7 @@ hframes = 9
 vframes = 3
 frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="world collider_CollisionShape" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.25 )
@@ -747,7 +750,6 @@ __meta__ = {
 }
 
 [node name="SwordHitbox" parent="HitboxPivoit" instance=ExtResource( 4 )]
-collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="HitboxPivoit/SwordHitbox" index="0"]
@@ -755,12 +757,24 @@ position = Vector2( 10, 0 )
 shape = SubResource( 37 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+visible = false
 collision_layer = 32
-collision_mask = 32
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -9 )
 shape = SubResource( 38 )
+
+[node name="Collectable collider" type="Area2D" parent="."]
+visible = false
+position = Vector2( -2, 5 )
+rotation = 1.5708
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable collider"]
+position = Vector2( -13, -1.99995 )
+rotation = -1.5708
+shape = SubResource( 39 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

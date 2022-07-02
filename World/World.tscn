@@ -30,10 +30,10 @@ position = Vector2( 56, 144 )
 position = Vector2( 195, 42 )
 
 [node name="Demon2" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 123, 72 )
+position = Vector2( 160, 102 )
 
 [node name="Demon3" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 194, 121 )
+position = Vector2( 176, 110 )
 
 [node name="objects YSort" type="YSort" parent="YSort"]
 

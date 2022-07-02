@@ -162,10 +162,9 @@ anims/collected = SubResource( 5 )
 
 [node name="playerDetecor" parent="." instance=ExtResource( 2 )]
 visible = false
-collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" parent="playerDetecor" index="0"]
-visible = false
 shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -175,7 +174,7 @@ animation = "Spirit_freed"
 offset = Vector2( 0, 2 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="playerDetecor" to="." method="_on_playerDetecor_body_entered"]
+[connection signal="area_entered" from="playerDetecor" to="." method="_on_playerDetecor_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 
 [editable path="playerDetecor"]
