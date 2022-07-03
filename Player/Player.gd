@@ -5,15 +5,17 @@ const DASH_MULTIPLIER = 2
 
 var velocity = Vector2.ZERO
 var state = MOVE
-var dash_vector = Vector2.DOWN
+var player_movment_vector = Vector2.DOWN
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var SwordHitbox = $HitboxPivoit/SwordHitbox
 
 enum {MOVE, ATTACK, DASH}
 
 func _ready():
 	animationTree.active = true
+	SwordHitbox.knockback_vector = player_movment_vector
 
 func _physics_process(delta):
 	match state:
@@ -32,7 +34,9 @@ func move_state(delta):
 	velocity = input_velocity.normalized()
 	
 	if input_velocity != Vector2.ZERO:
-		dash_vector = velocity
+		player_movment_vector = velocity
+		SwordHitbox.knockback_vector = velocity
+		
 		animationTree.set("parameters/Idle/blend_position", input_velocity)
 		animationTree.set("parameters/Float/blend_position", input_velocity)
 		animationTree.set("parameters/Attack/blend_position", input_velocity)
@@ -54,7 +58,7 @@ func attack_state(delta):
 	animationState.travel("Attack")
 	
 func dash_state(delta):
-	velocity = dash_vector * DASH_MULTIPLIER
+	velocity = player_movment_vector * DASH_MULTIPLIER
 	animationState.travel("Dash")
 	move()
 	
