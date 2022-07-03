@@ -8,6 +8,7 @@ var knockback = Vector2.ZERO
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var stats = $Stats
 
 enum {MOVE, ATTACK}
 
@@ -46,9 +47,12 @@ func _on_Player_detector_body_entered(body):
 func _on_Player_detector_body_exited(_body):
 	MAX_SPEED = 10
 	velocity = Vector2.ZERO
-	pass
 
 func _on_Hurtbox_area_entered(area):
-	#death animation
+	stats.health -= area.damage
+	#play hit animation
 	knockback = area.knockback_vector * 125
-	#queue_free()
+
+func _on_Stats_no_health():
+	#play death animation
+	queue_free()

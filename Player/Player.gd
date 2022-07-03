@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const MAX_SPEED = 40
-const DASH_MULTIPLIER = 2
+export var MAX_SPEED = 40
+export(float) var DASH_MULTIPLIER = 2
 
 var velocity = Vector2.ZERO
 var state = MOVE
