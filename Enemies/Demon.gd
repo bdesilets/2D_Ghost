@@ -10,6 +10,8 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var stats = $Stats
 
+const Enemy_death_effect = preload("res://Enemies/Enemy_death_effect.tscn")
+
 enum {MOVE, ATTACK}
 
 func _ready():
@@ -23,7 +25,6 @@ func _physics_process(delta):
 			attack_state()
 	
 	
-	
 func move_state(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
@@ -34,7 +35,12 @@ func move_state(delta):
 	animationTree.set("parameters/Idle/blend_position", velocity)
 	animationState.travel("Idle")
 	
+	match int(stats.health):
+		0:
+			velocity = Vector2.ZERO
+
 	velocity = move_and_slide(velocity)
+
 		
 func attack_state():
 	pass
@@ -42,7 +48,6 @@ func attack_state():
 func _on_Player_detector_body_entered(body):
 	MAX_SPEED = 20
 	player = body
-	pass
 
 func _on_Player_detector_body_exited(_body):
 	MAX_SPEED = 10
@@ -50,9 +55,10 @@ func _on_Player_detector_body_exited(_body):
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
-	#play hit animation
 	knockback = area.knockback_vector * 125
 
 func _on_Stats_no_health():
-	#play death animation
-	queue_free()
+	var enemy_death_effect = Enemy_death_effect.instance()
+	self.add_child(enemy_death_effect)
+	enemy_death_effect.global_position = global_position
+

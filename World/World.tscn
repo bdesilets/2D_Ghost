@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Rock.tscn" type="PackedScene" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://World/World.gd" type="Script" id=8]
 [ext_resource path="res://UI/Pause menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/controller_scheme.tscn" type="PackedScene" id=10]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="World" type="Node2D"]
 position = Vector2( -2, 0 )
@@ -38,11 +44,29 @@ position = Vector2( 56, 144 )
 [node name="Demon" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 172, 92 )
 
+[node name="AnimationTree" parent="YSort/Demon" index="3"]
+parameters/playback = SubResource( 1 )
+
+[node name="Stats" parent="YSort/Demon" index="7"]
+max_health = 0
+
 [node name="Demon2" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 286, 49 )
 
+[node name="AnimationTree" parent="YSort/Demon2" index="3"]
+parameters/playback = SubResource( 2 )
+
+[node name="Stats" parent="YSort/Demon2" index="7"]
+max_health = 0
+
 [node name="Demon3" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 64, 77 )
+
+[node name="AnimationTree" parent="YSort/Demon3" index="3"]
+parameters/playback = SubResource( 3 )
+
+[node name="Stats" parent="YSort/Demon3" index="7"]
+max_health = 0
 
 [node name="objects YSort" type="YSort" parent="YSort"]
 
@@ -91,3 +115,15 @@ position = Vector2( 157, 106 )
 [editable path="GUI"]
 [editable path="GUI/Spirit_counter"]
 [editable path="GUI/Pause_menu"]
+[editable path="YSort/Demon"]
+[editable path="YSort/Demon/Player detector"]
+[editable path="YSort/Demon/Hurtbox"]
+[editable path="YSort/Demon/Hitbox"]
+[editable path="YSort/Demon2"]
+[editable path="YSort/Demon2/Player detector"]
+[editable path="YSort/Demon2/Hurtbox"]
+[editable path="YSort/Demon2/Hitbox"]
+[editable path="YSort/Demon3"]
+[editable path="YSort/Demon3/Player detector"]
+[editable path="YSort/Demon3/Hurtbox"]
+[editable path="YSort/Demon3/Hitbox"]
