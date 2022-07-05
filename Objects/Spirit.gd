@@ -1,18 +1,19 @@
 extends StaticBody2D
 
 onready var animation_player = $AnimationPlayer
-onready var animated_sprite =$AnimatedSprite
+const Collected_effect = preload("res://Objects/collected_effect.tscn")
 
 
-func _on_playerDetecor_area_entered(area):
+func _on_PlayerDetector_area_entered(area):
+	print("on player detector entered ", area)
 	game_settings.increase_spirits_by(1)
 	play_animation()
+
 	
 func play_animation():
-	animated_sprite.visible = true
-	animated_sprite.play("Spirit_freed")
-	animation_player.play("collected")
-
-func _on_AnimatedSprite_animation_finished():
-	queue_free()
+	var collected_effect = Collected_effect.instance()
+	self.add_child(collected_effect)
+	collected_effect.global_position = global_position
+	
+	animation_player.play("fadeout")
 

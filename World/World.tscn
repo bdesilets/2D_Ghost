@@ -47,26 +47,17 @@ position = Vector2( 172, 92 )
 [node name="AnimationTree" parent="YSort/Demon" index="3"]
 parameters/playback = SubResource( 1 )
 
-[node name="Stats" parent="YSort/Demon" index="7"]
-max_health = 0
-
 [node name="Demon2" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 286, 49 )
 
 [node name="AnimationTree" parent="YSort/Demon2" index="3"]
 parameters/playback = SubResource( 2 )
 
-[node name="Stats" parent="YSort/Demon2" index="7"]
-max_health = 0
-
 [node name="Demon3" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 64, 77 )
 
 [node name="AnimationTree" parent="YSort/Demon3" index="3"]
 parameters/playback = SubResource( 3 )
-
-[node name="Stats" parent="YSort/Demon3" index="7"]
-max_health = 0
 
 [node name="objects YSort" type="YSort" parent="YSort"]
 
