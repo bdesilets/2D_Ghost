@@ -1,33 +1,42 @@
 extends KinematicBody2D
 
-var MAX_SPEED = null
+export var MAX_SPEED = 10
+export var FRICTION = 500
+export var ACCELERATION = 20
+
 var velocity = Vector2.ZERO
-var state = MOVE
+var state = IDLE
 var player = null
 var knockback = Vector2.ZERO
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var stats = $Stats
+onready var Player_detection = $Player_detector
 
 const Enemy_death_effect = preload("res://Enemies/Enemy_death_effect.tscn")
 
-enum {MOVE, ATTACK}
+enum {IDLE, WANDER, CHASE}
 
 func _ready():
 	animationTree.active = true
 
 func _physics_process(delta):
-	match state:
-		MOVE:
-			move_state(delta)
-		ATTACK:
-			attack_state()
-	
-	
-func move_state(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
+	
+	match state:
+		IDLE:
+			idle_state(delta)
+		WANDER:
+			wander_state()
+		CHASE:
+			chase_state()
+	
+	
+func idle_state(delta):
+	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	
 	
 	if player != null:
 		velocity = position.direction_to(player.position) * MAX_SPEED
@@ -40,9 +49,11 @@ func move_state(delta):
 			velocity = Vector2.ZERO
 
 	velocity = move_and_slide(velocity)
-
+	
+func wander_state():
+	pass
 		
-func attack_state():
+func chase_state():
 	pass
 
 func _on_Player_detector_body_entered(body):
