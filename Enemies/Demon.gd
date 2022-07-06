@@ -6,8 +6,9 @@ export var ACCELERATION = 20
 
 var velocity = Vector2.ZERO
 var state = IDLE
-var player = null
 var knockback = Vector2.ZERO
+var player = null
+var did_find = null
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -25,6 +26,8 @@ func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	knockback = move_and_slide(knockback)
 	
+	velocity = move_and_slide(velocity)
+	
 	match state:
 		IDLE:
 			idle_state(delta)
@@ -32,37 +35,43 @@ func _physics_process(delta):
 			wander_state()
 		CHASE:
 			chase_state()
-	
+			
 	
 func idle_state(delta):
-	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	
-	
-	if player != null:
-		velocity = position.direction_to(player.position) * MAX_SPEED
-	
-	animationTree.set("parameters/Idle/blend_position", velocity)
-	animationState.travel("Idle")
-	
-	match int(stats.health):
-		0:
-			velocity = Vector2.ZERO
+#	if did_find == true:
+#		player = Player_detection.player
+#		MAX_SPEED = 10
+#		velocity = position.direction_to(player.position) * MAX_SPEED
+#
+#	else:
+#		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 
-	velocity = move_and_slide(velocity)
+	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
+	seek_player()	
+	
 	
 func wander_state():
 	pass
 		
 func chase_state():
-	pass
-
-func _on_Player_detector_body_entered(body):
-	MAX_SPEED = 20
-	player = body
-
-func _on_Player_detector_body_exited(_body):
-	MAX_SPEED = 10
-	velocity = Vector2.ZERO
+	player = Player_detection.player
+	did_find = true
+	if player != null:
+		MAX_SPEED = 20
+		velocity = position.direction_to(player.position) * MAX_SPEED
+	else:
+		state = IDLE
+		
+	animationTree.set("parameters/Idle/blend_position", velocity)
+		
+	match int(stats.health):
+		0:
+			velocity = Vector2.ZERO
+			
+func seek_player():
+	if Player_detection.can_see_player():
+		state = CHASE
+	
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage

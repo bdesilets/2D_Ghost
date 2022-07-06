@@ -7,12 +7,11 @@ func _physics_process(delta):
 
 
 func _on_Player_detector_body_entered(body):
-	pass
-	#MAX_SPEED = 20
 	player = body
 
 
 func _on_Player_detector_body_exited(body):
+	player = null
 	#MAX_SPEED = 10
 	#velocity = Vector2.ZERO
 	pass
