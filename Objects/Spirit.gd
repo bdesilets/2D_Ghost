@@ -5,7 +5,6 @@ const Collected_effect = preload("res://Objects/collected_effect.tscn")
 
 
 func _on_PlayerDetector_area_entered(area):
-	print("on player detector entered ", area)
 	game_settings.increase_spirits_by(1)
 	play_animation()
 

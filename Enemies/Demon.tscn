@@ -190,6 +190,7 @@ shape = SubResource( 16 )
 Max_health = 3
 
 [node name="Player_detector" parent="." instance=ExtResource( 6 )]
+visible = false
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" parent="Player_detector" index="0"]
