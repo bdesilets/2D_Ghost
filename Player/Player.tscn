@@ -1091,10 +1091,12 @@ __meta__ = {
 }
 
 [node name="SwordHitbox" parent="HitboxPivoit" instance=ExtResource( 4 )]
+visible = false
 collision_mask = 16
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="HitboxPivoit/SwordHitbox" index="0"]
+visible = false
 position = Vector2( 10, 0 )
 shape = SubResource( 37 )
 
@@ -1114,6 +1116,7 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable collider"]
+visible = false
 position = Vector2( -13, -1.99995 )
 rotation = -1.5708
 shape = SubResource( 39 )

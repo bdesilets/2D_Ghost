@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 game_settings="*res://UI/game_settings.gd"
+PlayerStats="*res://Player/PlayerStats.tscn"
 
 [display]
 

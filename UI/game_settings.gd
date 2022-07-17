@@ -13,6 +13,9 @@ func update_scene():
 	_sceneTree = get_tree()
 	_UI_label = _sceneTree.root.get_node("/root/World/GUI/Spirit_counter/Spirit_counter_label")
 	
+func reset():
+	PlayerStats.health = PlayerStats.Max_health
+	
 func start_death_menu():
 	_spirits = 0
 	_UI_label.text = "Spirits: " + str(_spirits)

@@ -6,14 +6,17 @@ export(float) var DASH_MULTIPLIER = 2
 var velocity = Vector2.ZERO
 var state = MOVE
 var player_movment_vector = Vector2.DOWN
+var stats = PlayerStats
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var SwordHitbox = $HitboxPivoit/SwordHitbox
+onready var hurtbox = $Hurtbox
 
 enum {MOVE, ATTACK, DASH}
 
 func _ready():
+	stats.connect("no_health", self, "_on_no_health")
 	animationTree.active = true
 	SwordHitbox.knockback_vector = player_movment_vector
 
@@ -72,5 +75,12 @@ func dash_animation_finished():
 	state = MOVE
 
 func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage
+	hurtbox.start_invinciblity(0.5)
+	hurtbox.create_hit_effect()
 	#play death animation
+
+
+func _on_no_health():
+	game_settings.reset()
 	game_settings.start_death_menu()

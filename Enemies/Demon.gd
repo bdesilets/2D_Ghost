@@ -12,6 +12,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var stats = $Stats
 onready var Player_detection = $Player_detector
+onready var hurtbox = $Hurtbox
 
 const Enemy_death_effect = preload("res://Enemies/Enemy_death_effect.tscn")
 
@@ -64,6 +65,7 @@ func seek_player():
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * 125
+	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
 	var enemy_death_effect = Enemy_death_effect.instance()
