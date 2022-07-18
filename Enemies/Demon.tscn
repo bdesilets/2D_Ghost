@@ -183,6 +183,7 @@ visible = false
 collision_mask = 32
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+visible = false
 position = Vector2( 2, -11 )
 shape = SubResource( 16 )
 

@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var MAX_SPEED = 40
 export(float) var DASH_MULTIPLIER = 2
 
+signal death
+
 var velocity = Vector2.ZERO
 var state = MOVE
 var player_movment_vector = Vector2.DOWN
@@ -76,11 +78,10 @@ func dash_animation_finished():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
-	hurtbox.start_invinciblity(0.5)
+	hurtbox.start_invinciblity(1)
 	hurtbox.create_hit_effect()
 	#play death animation
 
-
 func _on_no_health():
-	game_settings.reset()
-	game_settings.start_death_menu()
+	queue_free()
+	emit_signal("death")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Rock.tscn" type="PackedScene" id=2]
@@ -6,10 +6,8 @@
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemies/Demon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Spirit.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/World.gd" type="Script" id=8]
-[ext_resource path="res://UI/Pause menu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://UI/controller_scheme.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -21,14 +19,7 @@
 position = Vector2( -2, 0 )
 script = ExtResource( 8 )
 
-[node name="GUI" parent="." instance=ExtResource( 7 )]
-
-[node name="Pause_menu" parent="GUI" instance=ExtResource( 9 )]
-visible = false
-margin_left = -2.0
-margin_right = -2.0
-
-[node name="controller_scheme" parent="GUI" instance=ExtResource( 10 )]
+[node name="UI" parent="." instance=ExtResource( 7 )]
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
@@ -103,9 +94,8 @@ z_index = -100
 [node name="Spirit3" parent="YSort/objects YSort" instance=ExtResource( 6 )]
 position = Vector2( 157, 106 )
 
-[editable path="GUI"]
-[editable path="GUI/Spirit_counter"]
-[editable path="GUI/Pause_menu"]
+[editable path="UI"]
+[editable path="UI/Spirit_counter"]
 [editable path="YSort/Demon"]
 [editable path="YSort/Demon/Hurtbox"]
 [editable path="YSort/Demon/Hitbox"]

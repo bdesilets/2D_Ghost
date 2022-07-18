@@ -51,9 +51,12 @@ func chase_state():
 	else:
 		MAX_SPEED = 20
 		
-	velocity = position.direction_to(player.position) * MAX_SPEED
-	animationTree.set("parameters/Idle/blend_position", velocity)
-			
+	if Player_detection.player != null:
+		velocity = position.direction_to(player.position) * MAX_SPEED
+		animationTree.set("parameters/Idle/blend_position", velocity)
+	else:
+		state = IDLE
+	
 func dead_state():
 	velocity = Vector2.ZERO
 	
